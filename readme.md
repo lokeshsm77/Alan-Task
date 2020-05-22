@@ -38,15 +38,15 @@ $ yarn dist
 
 After that, you will see the binary in the `./dist` folder!
 
-##How to run
+## How to run
 
 Clone the repository to your local system.
 
-Navigate to directory and run the following commands.
+  Navigate to directory and run the following commands.
 
-npm install - to install the dependacies
+  npm install - to install the dependacies
 
-npm run start - to start the app
+  npm run start - to start the app
 
 
 
