@@ -1,40 +1,40 @@
-'use strict'
+"use strict";
 
 // Packages
-import { remote } from 'electron'
-import { Component } from 'react'
-import Router from 'next/router'
+import { remote } from "electron";
+import { Component } from "react";
+import Router from "next/router";
 
 // Layouts
-import Page from './../layouts/page'
+import Page from "./../layouts/page";
 
 // Components
-import Row from './../ui/row'
-import Logo from './../icons/logo'
+import Row from "./../ui/row";
+import Logo from "./../icons/logo";
 
 // Services
-import { getCookie } from './../services/cookies'
-import { getUser, updateUser } from './../services/local-storage'
+import { getCookie } from "./../services/cookies";
+import { getUser, updateUser } from "./../services/local-storage";
 
 // Theme
-import { colors, typography } from './../theme'
+import { colors, typography } from "./../theme";
 
 class Start extends Component {
   componentDidMount() {
-    const { user } = getUser()
-    const cfg = remote && remote.app ? remote.app.config : {}
-    const token = getCookie('taskr')
-    const { pro } = cfg.user
-    const skipOnboard = user.onboard ? '/home?tab=Today' : '/onboard'
-    const redirectUrl = pro && token ? '/home?tab=Today' : skipOnboard
+    const { user } = getUser();
+    const cfg = remote && remote.app ? remote.app.config : {};
+    const token = getCookie("taskr");
+    const { pro } = cfg.user;
+    const skipOnboard = user.onboard ? "/home?tab=Today" : "/onboard";
+    const redirectUrl = pro && token ? "/home?tab=Today" : skipOnboard;
 
     if (!user.onboard) {
-      const userUpdated = Object.assign(user, { onboard: true })
+      const userUpdated = Object.assign(user, { onboard: true });
 
-      updateUser(userUpdated)
+      updateUser(userUpdated);
     }
 
-    Router.push(redirectUrl)
+    Router.push(redirectUrl);
   }
 
   render() {
@@ -81,8 +81,8 @@ class Start extends Component {
           }
         `}</style>
       </Page>
-    )
+    );
   }
 }
 
-export default Start
+export default Start;
