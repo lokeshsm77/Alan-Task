@@ -28,16 +28,6 @@
   <img src="https://github.com/bukinoshita/taskr/blob/master/media/windows.png" width="280">
 </a>
 
-## Contribute
-
-To run it locally on your own computer:
-
-* [Fork](https://help.github.com/articles/fork-a-repo/) this repository
-* [Clone](https://help.github.com/articles/cloning-a-repository/) it to your
-  local device
-* [Install](https://yarnpkg.com/en/docs/cli/install) the dependencies
-* [Run](https://github.com/bukinoshita/taskr/blob/master/package.json#L10) the
-  project
 
 To make sure that your code works in the finished application, you can generate
 the binaries like this:
@@ -47,6 +37,16 @@ $ yarn dist
 ```
 
 After that, you will see the binary in the `./dist` folder!
+
+##How to run
+
+Clone the repository to your local system.
+
+Navigate to directory and run the following commands.
+
+npm install - to install the dependacies
+
+npm run start - to start the app
 
 
 
