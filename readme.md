@@ -48,28 +48,6 @@ $ yarn dist
 
 After that, you will see the binary in the `./dist` folder!
 
-## About
 
-<a href="https://www.producthunt.com/posts/taskr">
-  <img src="https://github.com/bukinoshita/taskr/blob/master/media/product-hunt.png"/>
-</a>
 
-<p align="center">
-  <a href="https://medium.com/@bukinoshita/introducing-taskr-a-simple-task-manager-app-f1d046457585">
-    <img src="https://github.com/bukinoshita/taskr/blob/master/media/medium.png"  width="500">
-  </a>
-</p>
 
-## Pricing
-
-<img src="https://github.com/bukinoshita/taskr/blob/master/media/pricing.png">
-
-## Related
-
-* [taskr-design](https://github.com/bukinoshita/taskr-design) — Taskr design assets
-* [taskr-api](https://github.com/bukinoshita/taskr-api) — Taskr API for PRO users (private)
-* [taskr-ios](https://github.com/bukinoshita/taskr-ios) Taskr App for iOS (private)
-
-## License
-
-MIT © [Bu Kinoshita](https://bukinoshita.io)
