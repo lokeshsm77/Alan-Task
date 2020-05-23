@@ -47,12 +47,64 @@ class Home extends Component {
     const { user } = getUser();
     const tabSelected = tab ? tab : "Today";
 
-    this.setState({ user, tabSelected });
-
+    this.setState({
+      user,
+      tabSelected,
+    });
+    /** Alan Integration Start */
+    var _self = this;
     this.alanBtnInstance = alanBtn({
       key:
         "decf04a60f5a13700799a571520370fa2e956eca572e1d8b807a3e2338fdd0dc/stage",
+      onCommand: function(commandData) {
+        if (commandData != undefined) {
+          let commandTxt = commandData.command;
+          let selectTab = "";
+          switch (commandTxt) {
+            case "Open Today":
+              selectTab = "Today";
+              break;
+            case "Open Backlog":
+              selectTab = "Backlog";
+              break;
+            case "Open Done":
+              selectTab = "Done";
+              break;
+          }
+          const { tabSelected } = _self.state;
+          if (tabSelected === selectTab) {
+            _self.alanBtnInstance.playText("You are already in the same tab");
+          } else {
+            if (selectTab != "") {
+              _self.selectTab(selectTab);
+              selectTab = selectTab === "Today" ? selectTab + "'s" : selectTab;
+              /* _self.alanBtnInstance.playText(
+                "Navigating to, " + selectTab + " tasks"
+              );*/
+              _self.checkForTasks(selectTab);
+            }
+          }
+        }
+      },
     });
+    /** Alan Integration End */
+  }
+
+  checkForTasks(tabSelected) {
+    const { user } = this.state;
+    const tasks = user.tasks;
+    const filteredTasks = tasks
+      ? tasks.filter((task) => task.type === tabSelected.toLowerCase())
+      : [];
+
+    if (filteredTasks.length === 0) {
+      this.alanBtnInstance.playText("You do not have any tasks");
+    } else {
+      let taskLabel = filteredTasks.length > 1 ? " Tasks" : "Task";
+      this.alanBtnInstance.playText(
+        "There are " + filteredTasks.length + taskLabel
+      );
+    }
   }
 
   componentWillReceiveProps(nextProps) {
